@@ -19,7 +19,7 @@ body {
 .cover-section {
   width: 100%;
   height: 12rem;
-  background: linear-gradient(to right, #0f766e, #14b8a6);
+  background-image: url('./1665461892254.jpeg');
   position: relative;
 }
 
