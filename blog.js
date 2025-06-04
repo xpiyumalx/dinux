@@ -4,6 +4,8 @@ const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:j
 
 fetchPosts()
 
+
+
 function fetchPosts() {
 
     let postsHtml = ""
@@ -15,11 +17,11 @@ function fetchPosts() {
             let posts = json.table.rows.map(row => row.c.map(cell => cell?.v));
 
             posts.map(post => {
-                postsHtml += `<article class="blog-post" on-click="read()">
+                postsHtml += `<article class="blog-post" >
                                 <div class="post-date">March 15, 2024</div>
                                 <h2 class="post-title">${post[1]}</h2>
                                 <p class="post-excerpt">
-                                    ${post[2]}
+                                    ${post[2].substring(0,150)}...
                                 </p>
                                 <div class="post-tags">
                                     <span class="tag">JavaScript</span>
@@ -27,7 +29,7 @@ function fetchPosts() {
                                     <span class="tag">Web Development</span>
                                     <span class="tag">Scalability</span>
                                 </div>
-                                <a href="#" class="read-more">Read Full Article</a>
+                                <a href="blog-details.html?id=${post[0]}" class="read-more">Read Full Article</a>
                                 </article>`;
             })
 
